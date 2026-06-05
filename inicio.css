@@ -1,0 +1,404 @@
+@font-face {
+    font-family: 'Adamd';
+    src: url('./fonts/adamd.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Simonetta', serif;
+}
+
+/* Variables CSS */
+:root {
+  --gris-fondo: #E8E8E8;
+  --shadow-card: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--gris-fondo);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Contenedor principal */
+.portfolio-container {
+  position: relative;
+  width: 100%;
+  max-width: 1015px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Header con pestañas */
+.header-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: -80px;
+  z-index: 10;
+}
+
+.header-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 -3px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Enlaces de pestañas */
+
+.tab-link {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 11;
+}
+
+.tab-link.sobre-mi {
+  left: 8%;
+  width: 20%;
+  background-color: red;
+}
+
+.tab-link.proyectos {
+  left: 40%;
+  width: 20%;
+  background-color: rgb(0, 255, 123);
+}
+
+.tab-link.contacto {
+  left: 75%;
+  width: 20%;
+  background-color: rgb(37, 89, 129);
+}
+
+.tab-link:hover {
+  transform: translateY(-5px);
+}
+
+/* Carpeta principal */
+.folder-container {
+  position: relative;
+  width: 100%;
+  max-width: 1015px;
+  z-index: 5;
+}
+
+.folder-img {
+  width: 100%;
+  max-width: 1015px;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+
+
+/* Decoraciones flotantes */
+
+.decoraciones-container{
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.doodle {
+  position: absolute;
+  z-index: 15;
+  pointer-events: none;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.brillo1 {
+  top: 25%;
+  left: 30%;
+  width: 100px;
+  animation: float 5s ease-in-out infinite;
+}
+
+.brillo3 {
+  top: 75%;
+  right: 5%;
+  width: 100px;
+  animation: float 5s ease-in-out infinite;
+}
+
+.brillo2 {
+  top: 80%;
+  left: 35%;
+  width: 100px;
+  animation: float 5.5s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.brillo4 {
+  top: 30%;
+  left: 55%;
+  width: 100px;
+  animation: float 5.5s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.camara {
+  top: 70%;
+  left: 5%;
+  width: 150px;
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.compu {
+  top: 80%;
+  left: 60%;
+  width: 100px;
+  animation: float 6.5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.garabato {
+  top: 20%;
+  right: 5%;
+  width: 100px;
+  animation: float 5.8s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+
+.sello {
+  top: 30%;
+  right: 10%;
+  width: 150px;
+  animation: float 6.2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.tableta {
+  top: 22%;
+  left: 12%;
+  width: 100px;
+  animation: float 5.3s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+/* Animaciones */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(-2deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive - Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    padding: 30px 15px;
+  }
+
+  .portfolio-container {
+    max-width: 750px;
+  }
+
+  .header-container {
+    margin-bottom: -60px;
+  }
+
+  .folder-container {
+    max-width: 750px;
+  }
+
+  .folder-img {
+    max-width: 750px;
+  }
+
+  .brillo1 {
+    width: 80px;
+  }
+
+  .brillo2 {
+    width: 80px;
+  }
+
+  .brillo3 {
+    width: 80px;
+  }
+
+  .brillo4 {
+    width: 80px;
+  }
+
+  .camara {
+    width: 120px;
+  }
+
+  .compu {
+    width: 80px;
+  }
+
+  .garabato {
+    width: 80px;
+  }
+
+  .sello {
+    width: 120px;
+  }
+
+  .tableta {
+    width: 80px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  body {
+    padding: 15px 10px;
+  }
+
+  .portfolio-container {
+    max-width: 100%;
+  }
+
+  .header-container {
+    margin-bottom: -30px;
+  }
+
+  .folder-container {
+    max-width: 100%;
+  }
+
+  .folder-img {
+    max-width: 100%;
+    border-radius: 15px;
+  }
+
+  /* Ocultar decoraciones en móvil para mejor rendimiento */
+  .garabato,
+  .brillo2,
+  .brillo4,
+  .tableta,
+  .compu {
+    display: none;
+  }
+
+  /* Decoraciones visibles reducidas */
+  .brillo1 {
+    width: 50px;
+    top: 20%;
+    left: 25%;
+  }
+
+  .brillo3 {
+    width: 50px;
+    top: 70%;
+    right: 10%;
+  }
+
+  .camara {
+    width: 80px;
+    top: 65%;
+    left: 5%;
+  }
+
+  .sello {
+    width: 80px;
+    top: 25%;
+    right: 8%;
+  }
+
+  /* Ajustar pestañas para móvil */
+  .tab-link.sobre-mi {
+    left: 16%;
+    width: 22%;
+  }
+
+  .tab-link.proyectos {
+    left: 40%;
+    width: 20%;
+  }
+
+  .tab-link.contacto {
+    left: 62%;
+    width: 22%;
+  }
+}
+
+/* Responsive - Mobile pequeño */
+@media (max-width: 480px) {
+  body {
+    padding: 10px 8px;
+  }
+
+  .header-container {
+    margin-bottom: -20px;
+  }
+
+  .folder-img {
+    border-radius: 12px;
+  }
+
+  /* Reducir más las decoraciones */
+  .brillo1 {
+    width: 40px;
+  }
+
+  .brillo3 {
+    width: 40px;
+  }
+
+  .camara {
+    width: 60px;
+  }
+
+  .sello {
+    width: 65px;
+  }
+
+  /* Ajustar pestañas para pantallas muy pequeñas */
+  .tab-link.sobre-mi {
+    left: 14%;
+    width: 24%;
+  }
+
+  .tab-link.proyectos {
+    left: 38%;
+    width: 24%;
+  }
+
+  .tab-link.contacto {
+    left: 62%;
+    width: 24%;
+  }
+}

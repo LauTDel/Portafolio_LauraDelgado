@@ -1,0 +1,1325 @@
+/* ================================================
+   contacto.css — Portfolio Laura Delgado
+   ================================================ */
+
+/* ---- RESET ---- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---- BODY ---- */
+body {
+  background-color: #E8E8E8;
+  font-family: 'simonetta';
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ================================================
+   CONTENEDOR PRINCIPAL
+   ================================================ */
+
+.contacto-container {
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ================================================
+   HEADER — la imagen ya incluye el diseño visual
+   de las pestañas. Los <a> se posicionan encima
+   como áreas de clic invisibles.
+   ================================================ */
+
+.header-container {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  top: 40px;
+}
+
+.headercontacto-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Áreas de clic sobre cada pestaña del header.
+   Ajusta left/width si tu imagen las mueve. */
+.tab-link {
+  position: absolute;
+  display: block;
+  top: 0;
+  height: 100%;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 20;
+}
+
+.tab-link.sobre-mi {
+  left: 3%;
+  width: 18%;
+}
+
+.tab-link.proyectos {
+  left: 38%;
+  width: 22%;
+}
+
+.tab-link.contacto {
+  right: 3%;
+  width: 18%;
+}
+
+/* ================================================
+   CARPETA — portadacontacto.png es la base visual.
+   El .contact-hero se superpone absolutamente.
+   ================================================ */
+
+.folder-container {
+  position: relative;
+  width: 100%;
+}
+
+.folder-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateY(-40px);
+}
+
+/* ================================================
+   HERO — superpuesto sobre la carpeta.
+   Grid: título arriba (ancho total),
+         info de contacto izquierda | formulario derecha.
+   
+   ⚠ Ajusta padding-top si el título queda muy
+     arriba o abajo dentro de la carpeta.
+   ================================================ */
+
+.contact-hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "title  title"
+    "info   form";
+
+  /* ⚠ Ajusta estos valores según portadacontacto.png:
+       top    = espacio desde arriba hasta el título
+       sides  = margen del borde teal de la carpeta
+       bottom = espacio desde el borde teal inferior */
+  padding: 8% 8% 9%;
+  column-gap: 2%;
+  row-gap: 2%;
+}
+
+/* ================================================
+   TÍTULO
+   ================================================ */
+
+.contact-title {
+  grid-area: title;
+  font-family: 'adamd';
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.7vw, 2.4rem);
+  color: #1a2b3c;
+  text-align: center;
+  align-self: center;
+  margin-bottom: 2%;
+}
+
+/* ================================================
+   INFORMACIÓN DE CONTACTO — columna izquierda
+   ================================================ */
+
+.contact-info {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 8%;
+  padding-bottom: 10%;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  cursor: default;
+  transition: opacity 0.2s;
+}
+
+.info-item:hover {
+  opacity: 0.75;
+}
+
+/* Iconos: correo.png, celular.png, insta.png */
+.info-email,
+.info-phone,
+.info-instagram {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.info-text {
+  font-weight: 600;
+  font-size: clamp(1.2rem, 1.15vw, 0.92rem);
+  color: #1a2b3c;
+  letter-spacing: 0.01em;
+}
+
+/* ================================================
+   FORMULARIO WRAPPER — columna derecha.
+   marcocontacto.png es la tarjeta teal de fondo.
+   .contact-form se superpone con los inputs.
+   ================================================ */
+
+.formulario-wrapper {
+  grid-area: form;
+  position: relative;
+  align-self: center;
+  margin-top: -30px;
+}
+
+/* Imagen de fondo de la tarjeta teal (marcocontacto.png).
+   object-fit: fill para que llene exactamente el wrapper
+   sin importar el aspect-ratio del contenedor. */
+.formulario-bg {
+  border-radius: 25px;
+  width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ================================================
+   CONTACT FORM — superpuesto sobre marcocontacto.png.
+
+   Los inputs son TRANSPARENTES para que las cajas
+   blancas de la imagen sean visibles debajo.
+
+   ⚠ Ajusta padding-top para bajar los campos hasta
+     alinearlos con las cajas blancas de tu imagen.
+     Ajusta padding-bottom para subir el botón.
+   ================================================ */
+
+.contact-form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+
+  /* ⚠ Afina estos valores según marcocontacto.png:
+       top    = espacio desde la chincheta/header de la tarjeta hasta el 1er input
+       sides  = margen horizontal dentro de la tarjeta
+       bottom = espacio desde el último elemento hasta la chincheta inferior */
+  padding: 16% 15% 14%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 5%;
+}
+
+/* ---- Inputs ---- */
+/* background y border transparentes: las cajas blancas
+   provienen de la imagen marcocontacto.png */
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
+  width: 100%;
+  height: 18%;
+  /* ⚠ ajusta si los inputs sobresalen de las cajas */
+  background: #FFF7F7;
+  border: 2px solid #1F3144;
+  outline: none;
+  font-family: 'simonetta';
+  font-size: clamp(0.68rem, 1.05vw, 0.88rem);
+  color: #1a2b3c;
+  border-radius: 12px;
+  padding: 0 6%;
+  cursor: text;
+}
+
+/* ---- Textarea ---- */
+.contact-form textarea {
+  flex: 1;
+  width: 100%;
+  background: #FFF7F7;
+  border: 2px solid #1F3144;
+  outline: none;
+  resize: none;
+  font-family: 'simonetta';
+  font-size: clamp(0.68rem, 1.05vw, 0.88rem);
+  color: #1a2b3c;
+  border-radius: 12px;
+  padding: 2.5% 6%;
+  cursor: text;
+  /* Scroll interno si el mensaje es largo */
+  overflow-y: auto;
+}
+
+/* Placeholders invisibles porque los labels
+   están pintados en marcocontacto.png */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #213448;
+}
+
+/* Evita que el foco del navegador dibuje borde visible */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Campos ocultos de formsubmit */
+.contact-form input[type="hidden"] {
+  display: none;
+}
+
+/* ---- Botón Enviar ---- */
+/* El visual del botón viene de enviar.png.
+   El <button> actúa solo como área de clic. */
+.submit-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  padding: 0;
+  transition: opacity 0.2s, transform 0.12s;
+}
+
+.submit-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.submit-btn:active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ⚠ Ajusta el ancho de la imagen del botón según enviar.png */
+.submit-img {
+  display: block;
+  width: 30%;
+  max-width: 170px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Decoraciones flotantes */
+
+.decoraciones-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.doodle {
+  position: absolute;
+  z-index: 15;
+  pointer-events: none;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.brillo1 {
+  top: 20%;
+  left: 30%;
+  width: 50px;
+  animation: float 5s ease-in-out infinite;
+}
+
+.brillo3 {
+  top: 20%;
+  right: 5%;
+  width: 50px;
+  animation: float 5s ease-in-out infinite;
+}
+
+.brillo2 {
+  top: 15%;
+  left: 23%;
+  width: 50px;
+  animation: float 5.5s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.brillo4 {
+  top: 15%;
+  left: 70%;
+  width: 50px;
+  animation: float 5.5s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.camara {
+  top: 20%;
+  left: 5%;
+  width: 50px;
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.compu {
+  top: 15%;
+  left: 78%;
+  width: 50px;
+  animation: float 6.5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.garabato {
+  top: 10%;
+  right: 10%;
+  width: 50px;
+  animation: float 5.8s ease-in-out infinite;
+  animation-delay: 2.5s;
+}
+
+.tableta {
+  top: 15%;
+  left: 15%;
+  width: 50px;
+  animation: float 5.3s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+/* Animaciones */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+
+  50% {
+    transform: translateY(-6px) rotate(-2deg);
+  }
+
+  75% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/*================================================RESPONSIVE — DESKTOP GRANDE================================================*/ 
+@media (min-width: 1400px) {
+  .contacto-container {
+    max-width: 1400px;
+  }
+
+  .contact-title {
+    font-size: 2.8rem;
+  }
+
+  .info-email,
+  .info-phone,
+  .info-instagram {
+    width: 90px;
+    height: 90px;
+  }
+
+  .info-text {
+    font-size: 1.1rem;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    font-size: 1rem;
+  }
+
+  .submit-img {
+    max-width: 200px;
+  }
+
+  .brillo1,
+  .brillo2,
+  .brillo3,
+  .brillo4,
+  .camara,
+  .compu,
+  .garabato,
+  .tableta {
+    width: 60px;
+  }
+}
+
+/* ================================================
+   RESPONSIVE — LAPTOP / TABLET HORIZONTAL
+   ================================================ */
+
+@media (max-width: 1200px) {
+  .header-container {
+    top: 35px;
+  }
+
+  .contact-hero {
+    padding: 7.5% 7.5% 8.5%;
+    column-gap: 2.5%;
+  }
+
+  .contact-title {
+    font-size: clamp(1.3rem, 2.5vw, 2.2rem);
+  }
+
+  .contact-info {
+    padding-left: 7%;
+    padding-bottom: 9%;
+    gap: 1rem;
+  }
+
+  .info-email,
+  .info-phone,
+  .info-instagram {
+    width: 70px;
+    height: 70px;
+  }
+
+  .info-text {
+    font-size: clamp(0.95rem, 1.1vw, 1rem);
+  }
+
+  .formulario-wrapper {
+    margin-top: -25px;
+  }
+
+  .formulario-bg {
+    width: 82%;
+  }
+
+  .contact-form {
+    padding: 15.5% 14.5% 13.5%;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    font-size: clamp(0.7rem, 1.05vw, 0.88rem);
+  }
+
+  .contact-form textarea {
+    font-size: clamp(0.7rem, 1.05vw, 0.88rem);
+  }
+
+  .submit-img {
+    width: 32%;
+    max-width: 160px;
+  }
+
+  .brillo1,
+  .brillo2,
+  .brillo3,
+  .brillo4,
+  .camara,
+  .compu,
+  .garabato,
+  .tableta {
+    width: 45px;
+  }
+}
+
+/* ================================================
+   RESPONSIVE — TABLET VERTICAL
+   ================================================ */
+
+@media (max-width: 1024px) {
+  .header-container {
+    top: 28px;
+  }
+
+  .folder-img {
+    transform: translateY(-28px);
+  }
+
+  .contact-hero {
+    padding: 7% 6.5% 8%;
+    column-gap: 2%;
+    row-gap: 2.5%;
+  }
+
+  .contact-title {
+    font-size: clamp(1.2rem, 2.8vw, 2rem);
+    margin-bottom: 2%;
+  }
+
+  .contact-info {
+    padding-left: 5%;
+    padding-bottom: 7%;
+    gap: 0.9rem;
+  }
+
+  .info-item {
+    gap: 0.8rem;
+  }
+
+  .info-email,
+  .info-phone,
+  .info-instagram {
+    width: 60px;
+    height: 60px;
+  }
+
+  .info-text {
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+  }
+
+  .formulario-wrapper {
+    margin-top: -18px;
+  }
+
+  .formulario-bg {
+    width: 87%;
+  }
+
+  .contact-form {
+    padding: 15% 13% 12%;
+  }
+
+  .contact-form form {
+    gap: 4.5%;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    height: 17%;
+    font-size: clamp(0.7rem, 1.3vw, 0.85rem);
+    padding: 0 5%;
+  }
+
+  .contact-form textarea {
+    font-size: clamp(0.7rem, 1.3vw, 0.85rem);
+    padding: 2.5% 5%;
+  }
+
+  .submit-img {
+    width: 38%;
+    max-width: 145px;
+  }
+
+  .brillo1,
+  .brillo2,
+  .brillo3,
+  .brillo4,
+  .camara,
+  .compu,
+  .garabato,
+  .tableta {
+    width: 38px;
+  }
+}
+
+/* ================================================
+   RESPONSIVE — TABLET PEQUEÑA / MÓVIL HORIZONTAL
+   ================================================ */
+
+@media (max-width: 900px) {
+  .header-container {
+    top: 24px;
+  }
+
+  .folder-img {
+    transform: translateY(-24px);
+  }
+
+  .tab-link.sobre-mi {
+    left: 2.5%;
+    width: 20%;
+  }
+
+  .tab-link.proyectos {
+    left: 37.5%;
+    width: 24%;
+  }
+
+  .tab-link.contacto {
+    right: 2.5%;
+    width: 20%;
+  }
+
+  .contact-hero {
+    padding: 6.5% 6% 7.5%;
+    column-gap: 1.8%;
+  }
+
+  .contact-title {
+    font-size: clamp(1.15rem, 3vw, 1.9rem);
+  }
+
+  .contact-info {
+    padding-left: 4%;
+    padding-bottom: 6%;
+    gap: 0.85rem;
+  }
+
+  .info-email,
+  .info-phone,
+  .info-instagram {
+    width: 55px;
+    height: 55px;
+  }
+
+  .info-text {
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  }
+
+  .formulario-wrapper {
+    margin-top: -12px;
+  }
+
+  .formulario-bg {
+    width: 90%;
+  }
+
+  .contact-form {
+    padding: 14.5% 12.5% 11.5%;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    height: 16.5%;
+    font-size: clamp(0.72rem, 1.5vw, 0.88rem);
+    border-radius: 11px;
+  }
+
+  .contact-form textarea {
+    font-size: clamp(0.72rem, 1.5vw, 0.88rem);
+  }
+
+  .submit-img {
+    width: 40%;
+    max-width: 135px;
+  }
+
+  .brillo1,
+  .brillo2,
+  .brillo3,
+  .brillo4 {
+    width: 35px;
+  }
+
+  .camara,
+  .compu,
+  .garabato,
+  .tableta {
+    width: 36px;
+  }
+}
+
+/* ================================================
+   RESPONSIVE — MÓVIL GRANDE
+   ================================================ */
+
+@media (max-width: 768px) {
+  body {
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .contacto-container {
+    max-width: 100%;
+  }
+
+  .header-container {
+    top: 20px;
+  }
+
+  .tab-link.sobre-mi {
+    left: 2%;
+    width: 21%;
+  }
+
+  .tab-link.proyectos {
+    left: 37%;
+    width: 25%;
+  }
+
+  .tab-link.contacto {
+    right: 2%;
+    width: 21%;
+  }
+
+  .folder-img {
+    content: url("Imagenes/portadacontactoMOVILGRANDE.png");
+  }
+
+  /* Layout de 1 columna */
+  .contact-hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "title"
+      "info"
+      "form";
+    padding: 8% 6% 9%;
+    row-gap: 4%;
+    column-gap: 0;
+  }
+
+  .contact-title {
+    font-size: clamp(1.3rem, 5vw, 2rem);
+    margin-bottom: 3%;
+  }
+
+  /* Información centrada */
+  .contact-info {
+    padding-left: 0;
+    padding-bottom: 4%;
+    padding-top: 2%;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+  }
+
+  .info-item {
+    gap: 0.8rem;
+    justify-content: center;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .info-email,
+  .info-phone,
+  .info-instagram {
+    width: 55px;
+    height: 55px;
+  }
+
+  .info-text {
+    font-size: clamp(0.95rem, 3.8vw, 1.1rem);
+  }
+
+  /* Formulario optimizado */
+  .formulario-wrapper {
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .formulario-bg {
+    width: 94%;
+  }
+
+  .contact-form {
+    padding: 14% 12% 11%;
+  }
+
+  .contact-form form {
+    gap: 4.2%;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    height: 16%;
+    font-size: clamp(0.85rem, 3.2vw, 1rem);
+    padding: 0 5%;
+    border-radius: 10px;
+    border-width: 2px;
+  }
+
+  .contact-form textarea {
+    font-size: clamp(0.85rem, 3.2vw, 1rem);
+    padding: 3.5% 5%;
+    border-radius: 10px;
+    border-width: 2px;
+  }
+
+  .submit-img {
+    width: 42%;
+    max-width: 140px;
+  }
+
+  /* Decoraciones optimizadas */
+  .brillo1,
+  .brillo2,
+  .brillo3,
+  .brillo4 {
+    width: 32px;
+  }
+
+  .camara,
+  .compu {
+    width: 34px;
+  }
+
+  .garabato,
+  .tableta {
+    width: 33px;
+  }
+
+  /* Reposicionar decoraciones */
+  .brillo1 {
+    top: 17%;
+    left: 22%;
+  }
+
+  .brillo2 {
+    top: 12%;
+    left: 15%;
+  }
+
+  .brillo3 {
+    top: 17%;
+    right: 4%;
+  }
+
+  .brillo4 {
+    top: 12%;
+    left: 68%;
+  }
+
+  .camara {
+    top: 17%;
+    left: 4%;
+  }
+
+  .compu {
+    top: 12%;
+    left: 75%;
+  }
+
+  .garabato {
+    top: 9%;
+    right: 9%;
+  }
+
+  .tableta {
+    top: 12%;
+    left: 12%;
+  }
+}
+
+/* ================================================
+   RESPONSIVE — MÓVIL MEDIANO
+   ================================================ */
+
+@media (max-width: 640px) {
+  .header-container {
+    top: 18px;
+  }
+
+  .folder-img {
+    transform: translateY(-18px);
+  }
+
+  .contact-hero {
+    padding: 7% 5% 8%;
+    row-gap: 3.5%;
+  }
+
+  .contact-title {
+    font-size: clamp(1.2rem, 5.5vw, 1.8rem);
+    margin-bottom: 2.5%;
+  }
+
+  .contact-info {
+    gap: 1.1rem;
+    padding-top: 1.5%;
+    padding-bottom: 3.5%;
+  }
+
+  .info-item {
+    gap: 0.75rem;
+  }
+
+  .info-email,
+  .info-phone,
+  .info-instagram {
+    width: 52px;
+    height: 52px;
+  }
+
+  .info-text {
+    font-size: clamp(0.9rem, 4vw, 1.05rem);
+  }
+
+  .formulario-bg {
+    width: 96%;
+  }
+
+  .contact-form {
+    padding: 13.5% 11% 10.5%;
+  }
+
+  .contact-form form {
+    gap: 4%;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    height: 15.5%;
+    font-size: clamp(0.82rem, 3.5vw, 0.96rem);
+    padding: 0 4.5%;
+    border-radius: 9px;
+  }
+
+  .contact-form textarea {
+    font-size: clamp(0.82rem, 3.5vw, 0.96rem);
+    padding: 3.5% 4.5%;
+    border-radius: 9px;
+  }
+
+  .submit-img {
+    width: 44%;
+    max-width: 130px;
+  }
+
+  .brillo1,
+  .brillo3 {
+    width: 30px;
+  }
+
+  .brillo2,
+  .brillo4 {
+    width: 28px;
+  }
+
+  .camara,
+  .compu,
+  .garabato,
+  .tableta {
+    width: 31px;
+  }
+}
+
+/* ================================================
+   RESPONSIVE — MÓVIL PEQUEÑO
+   ================================================ */
+
+@media (max-width: 480px) {
+  .header-container {
+    top: 15px;
+  }
+
+  .folder-img {
+    transform: translateY(-15px);
+  }
+
+  .contact-hero {
+    padding: 6.5% 4.5% 7.5%;
+    row-gap: 3%;
+  }
+
+  .contact-title {
+    font-size: clamp(1.1rem, 6vw, 1.6rem);
+    margin-bottom: 2%;
+  }
+
+  .contact-info {
+    gap: 1rem;
+    padding-top: 1%;
+    padding-bottom: 3%;
+  }
+
+  .info-item {
+    gap: 0.7rem;
+  }
+
+  .info-email,
+  .info-phone,
+  .info-instagram {
+    width: 48px;
+    height: 48px;
+  }
+
+  .info-text {
+    font-size: clamp(0.87rem, 4.2vw, 1rem);
+    letter-spacing: 0.005em;
+  }
+
+  .formulario-bg {
+    width: 97%;
+  }
+
+  .contact-form {
+    padding: 13% 10% 10%;
+  }
+
+  .contact-form form {
+    gap: 3.8%;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    height: 15%;
+    font-size: clamp(0.8rem, 3.8vw, 0.92rem);
+    padding: 0 4%;
+    border-radius: 8px;
+  }
+
+  .contact-form textarea {
+    font-size: clamp(0.8rem, 3.8vw, 0.92rem);
+    padding: 3.5% 4%;
+    border-radius: 8px;
+  }
+
+  .submit-img {
+    width: 48%;
+    max-width: 125px;
+  }
+
+  /* Ocultar decoraciones secundarias */
+  .brillo2,
+  .brillo4,
+  .garabato,
+  .tableta {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .brillo1,
+  .brillo3 {
+    width: 28px;
+  }
+
+  .camara,
+  .compu {
+    width: 29px;
+  }
+
+  .brillo1 {
+    top: 16%;
+    left: 20%;
+  }
+
+  .brillo3 {
+    top: 16%;
+    right: 5%;
+  }
+
+  .camara {
+    top: 16%;
+    left: 5%;
+  }
+
+  .compu {
+    top: 16%;
+    right: 20%;
+  }
+}
+
+/* ================================================
+   RESPONSIVE — MÓVIL MUY PEQUEÑO
+   ================================================ */
+
+@media (max-width: 380px) {
+  .header-container {
+    top: 12px;
+  }
+
+  .folder-img {
+    transform: translateY(-12px);
+  }
+
+  .contact-hero {
+    padding: 6% 4% 7%;
+    row-gap: 2.5%;
+  }
+
+  .contact-title {
+    font-size: clamp(1rem, 6.5vw, 1.4rem);
+    margin-bottom: 1.5%;
+  }
+
+  .contact-info {
+    gap: 0.9rem;
+    padding-bottom: 2.5%;
+  }
+
+  .info-item {
+    gap: 0.65rem;
+  }
+
+  .info-email,
+  .info-phone,
+  .info-instagram {
+    width: 44px;
+    height: 44px;
+  }
+
+  .info-text {
+    font-size: clamp(0.84rem, 4.5vw, 0.95rem);
+  }
+
+  .formulario-bg {
+    width: 98%;
+  }
+
+  .contact-form {
+    padding: 12.5% 9% 9.5%;
+  }
+
+  .contact-form form {
+    gap: 3.5%;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    height: 14.5%;
+    font-size: clamp(0.78rem, 4vw, 0.88rem);
+    padding: 0 3.5%;
+    border-radius: 7px;
+  }
+
+  .contact-form textarea {
+    font-size: clamp(0.78rem, 4vw, 0.88rem);
+    padding: 3.5% 3.5%;
+    border-radius: 7px;
+  }
+
+  .submit-img {
+    width: 52%;
+    max-width: 115px;
+  }
+
+  .brillo1,
+  .brillo3 {
+    width: 25px;
+  }
+
+  .camara,
+  .compu {
+    width: 26px;
+  }
+}
+
+/* ================================================
+   RESPONSIVE — LANDSCAPE MÓVIL
+   ================================================ */
+
+@media (max-width: 900px) and (max-height: 600px) and (orientation: landscape) {
+  .header-container {
+    top: 15px;
+  }
+
+  .folder-img {
+    transform: translateY(-15px);
+  }
+
+  .contact-hero {
+    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "title  title"
+      "info   form";
+    padding: 5% 5% 6%;
+    row-gap: 2%;
+    column-gap: 3%;
+  }
+
+  .contact-title {
+    font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+    margin-bottom: 1%;
+  }
+
+  .contact-info {
+    padding-left: 3%;
+    padding-bottom: 0;
+    padding-top: 0;
+    gap: 0.7rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .info-item {
+    gap: 0.6rem;
+    justify-content: flex-start;
+  }
+
+  .info-email,
+  .info-phone,
+  .info-instagram {
+    width: 42px;
+    height: 42px;
+  }
+
+  .info-text {
+    font-size: clamp(0.75rem, 2vw, 0.9rem);
+  }
+
+  .formulario-wrapper {
+    margin-top: 0;
+  }
+
+  .formulario-bg {
+    width: 92%;
+  }
+
+  .contact-form {
+    padding: 12% 10% 9%;
+  }
+
+  .contact-form form {
+    gap: 3.5%;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    height: 14%;
+    font-size: clamp(0.72rem, 1.8vw, 0.84rem);
+    padding: 0 4%;
+  }
+
+  .contact-form textarea {
+    font-size: clamp(0.72rem, 1.8vw, 0.84rem);
+    padding: 2.5% 4%;
+  }
+
+  .submit-img {
+    width: 35%;
+    max-width: 110px;
+  }
+
+  .brillo1,
+  .brillo2,
+  .brillo3,
+  .brillo4,
+  .camara,
+  .compu,
+  .garabato,
+  .tableta {
+    width: 26px;
+  }
+}

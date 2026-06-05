@@ -461,13 +461,9 @@ body {
     transform: none;
   }
 
-  .contact-hero {
-
-    padding: 22% 8% 10%;
-
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  .contact-hero{
+    position: absolute;
+    padding: 20% 8% 10%;
   }
 
   .contact-title {

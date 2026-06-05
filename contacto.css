@@ -456,7 +456,7 @@ body {
 
   /* Imagen de carpeta especial para móvil */
   .folder-img {
-    content: url("Imagenes/portadacontacto-mobile.png");
+    content: url("Imagenes/portadacontactoMOVILGRANDE.png");
     width: 100%;
     transform: none;
   }
